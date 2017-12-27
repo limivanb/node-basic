@@ -1,0 +1,22 @@
+{
+  "name": "node-basic",
+  "version": "1.0.0",
+  "description": "Basic Training for Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limivanb/node-basic.git"
+  },
+  "author": "Ivan Lim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limivanb/node-basic/issues"
+  },
+  "homepage": "https://github.com/limivanb/node-basic#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
