@@ -1,40 +1,44 @@
 const fs = require('fs');
 const os = require('os');
 
-// December 27, 2017 14:37:35
+const getCurrentDateTime = () => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = months[today.getMonth()];
+  const day = today.getDate();
 
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
+  const hours = today.getHours();
+  const minutes = today.getMinutes();
+  const seconds = today.getSeconds();
+
+  return `${month} ${day}, ${year} ${hours}:${minutes}:${seconds}`;
+};
 
 const myCPU = os.cpus();
 const myNetwork = os.networkInterfaces();
 
-console.log(JSON.stringify(myNetwork,undefined,2));
-// const today = new Date();
-// const year = today.getFullYear();
-// const month = months[today.getMonth()];
-// const day = today.getDate();
-//
-// const hours = today.getHours();
-// const minutes = today.getMinutes();
-// const seconds = today.getSeconds();
-//
-// fs.appendFileSync('logs.txt',
-//     `${month} ${day}, ${year} ${hours}:${minutes}:${seconds}\r\n`);
+const model = myCPU[0].model;
+const ip_address = myNetwork["en0"][1].address;
 
+fs.appendFileSync('logs.txt', getCurrentDateTime() + '\r\n');
+fs.appendFileSync('logs.txt',`CPU: ${model}\r\n`);
+fs.appendFileSync('logs.txt',`IP: ${ip_address}\r\n`);
 
+fs.appendFileSync('logs2.txt', getCurrentDateTime() + '\r\n');
 // const person = {
 //   name: 'Ivan',
 //   age: 33
