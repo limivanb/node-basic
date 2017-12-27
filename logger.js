@@ -22,7 +22,12 @@ const year = today.getFullYear();
 const month = months[today.getMonth()];
 const day = today.getDate();
 
-fs.appendFileSync('logs.txt', month + ' ' + day + ',' + year + '\r\n');
+const hours = today.getHours();
+const minutes = today.getMinutes();
+const seconds = today.getSeconds();
+
+fs.appendFileSync('logs.txt',
+    `${month} ${day}, ${year} ${hours}:${minutes}:${seconds}\r\n`);
 
 
 // const person = {
